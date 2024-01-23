@@ -32,8 +32,6 @@ class Hijo extends Padre {
 
     methodB() {
         console.log(`Hijo - Refina MetodB: Metros Cuadrados: ${this.#metrosCuadrados}`);
-        super.methodB(`${Padre.casa}`);
-        console.log(`Hijo - MetodB: Metros Cuadrados: ${this.#metrosCuadrados}`);
     }
 
     methodC() {
@@ -55,7 +53,6 @@ padre.methodB();
 padre.methodC();
 
 let hijo = new Hijo("1000mtrs", "1 Hectarea", "Casa en la Playa");
-hijo.methodA();
 hijo.methodB();
 hijo.methodC();
 hijo.methodD();
