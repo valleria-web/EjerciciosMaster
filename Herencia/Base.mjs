@@ -1,5 +1,6 @@
 class Padre {
     static casa; 
+    #atribute;
 
     constructor(parameter) {
         Padre.casa = parameter; 
