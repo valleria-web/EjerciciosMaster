@@ -1,0 +1,23 @@
+@startuml mvc;
+
+class Model {
+    - data: int
+    + constructor()
+    + setData(value: int): void
+    + getData(): int
+}
+
+class View {
+    + displayData(data: int): void
+}
+
+class Controller {
+    - model: Model
+    - view: View
+    + constructor(model: Model, view: View)
+    + updateData(value: int): void
+}
+
+Model <-- Controller
+View <-- Controller
+@enduml
