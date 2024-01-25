@@ -1,0 +1,91 @@
+{
+    "classes": [
+      {
+        "name": "Padre",
+        "methods": [
+          {
+            "visibility": "+",
+            "name": "metodoClaseAbstracta1"
+          }
+        ]
+      },
+      {
+        "name": "Madre",
+        "methods": [
+          {
+            "visibility": "+",
+            "name": "metodoClaseAbstracta2"
+          }
+        ]
+      },
+      {
+        "name": "GeneticaPadreMadre",
+        "fields": [
+          {
+            "visibility": "-",
+            "name": "claseAbstracta1",
+            "type": "Padre"
+          },
+          {
+            "visibility": "-",
+            "name": "claseAbstracta2",
+            "type": "Madre"
+          }
+        ],
+        "methods": [
+          {
+            "visibility": "+",
+            "name": "constructor"
+          },
+          {
+            "visibility": "+",
+            "name": "metodoClaseAbstracta1"
+          },
+          {
+            "visibility": "+",
+            "name": "metodoClaseAbstracta2"
+          },
+          {
+            "visibility": "+",
+            "name": "metodoCombinado"
+          }
+        ]
+      },
+      {
+        "name": "Hijo",
+        "methods": [
+          {
+            "visibility": "+",
+            "name": "metodoClaseFinal"
+          },
+          {
+            "visibility": "+",
+            "name": "llamarMetodoClaseAbstracta1"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "aggregation",
+        "class1": "Padre",
+        "class2": "GeneticaPadreMadre"
+      },
+      {
+        "type": "aggregation",
+        "class1": "Madre",
+        "class2": "GeneticaPadreMadre"
+      },
+      {
+        "type": "composition",
+        "class1": "GeneticaPadreMadre",
+        "class2": "Hijo"
+      },
+      {
+        "type": "inheritance",
+        "class1": "Hijo",
+        "class2": "GeneticaPadreMadre"
+      }
+    ]
+  }
+  

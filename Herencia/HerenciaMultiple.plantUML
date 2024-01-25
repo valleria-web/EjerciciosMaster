@@ -1,0 +1,38 @@
+@startuml
+
+class Padre {
+  - #name: String
+  + {constructor} Padre(name: String)
+  + getPadreName(): String
+}
+
+class Madre {
+  - #name: String
+  + {constructor} Madre(name: String)
+  + getMadreName(): String
+}
+
+class GeneticaPadreMadre {
+  - padre: Padre
+  - madre: Madre
+  + {constructor} GeneticaPadreMadre(padre: Padre, madre: Madre)
+  + getPadreName(): String
+  + getMadreName(): String
+}
+
+class Hijo {
+  - #name: String
+  - padre: Padre
+  - madre: Madre
+  + {constructor} Hijo(name: String, padre: Padre, madre: Madre)
+  + getHijoName(): String
+  + getPadre(): Padre
+  + getMadre(): Madre
+}
+
+Padre --|> GeneticaPadreMadre: contiene
+Madre --|> GeneticaPadreMadre: contiene
+GeneticaPadreMadre --|> Hijo: hereda
+
+@enduml
+

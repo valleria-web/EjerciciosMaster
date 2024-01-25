@@ -1,42 +1,58 @@
 class Padre {
-  metodoClaseAbstracta1() {
-    console.log("Método de la Clase Padre");
+  #name;
+
+  constructor(name) {
+    this.#name = name;
+  }
+
+  getPadreName() {
+    return this.#name;
   }
 }
 
 class Madre {
-  metodoClaseAbstracta2() {
-    console.log("Método de la Clase Madre");
+  #name;
+
+  constructor(name) {
+    this.#name = name;
+  }
+
+  getMadreName() {
+    return this.#name;
   }
 }
 
-class GeneticaPadreMadre {
-  constructor() {
-    this.claseAbstracta1 = new Padre();
-    this.claseAbstracta2 = new Madre();
+class Hijo {
+  #name;
+  #padre;
+  #madre;
+
+  constructor(name, padre, madre) {
+    this.#name = name;
+    this.#padre = padre;
+    this.#madre = madre;
   }
 
-  metodoClaseAbstracta1() {
-    this.claseAbstracta1.metodoClaseAbstracta1();
+  getHijoName() {
+    return this.#name;
   }
 
-  metodoClaseAbstracta2() {
-    this.claseAbstracta2.metodoClaseAbstracta2();
+  getPadre() {
+    return this.#padre;
   }
 
-  metodoCombinado() {
-    console.log("Método que combina funcionalidades");
+  getMadre() {
+    return this.#madre;
   }
 }
 
-class Hijo extends GeneticaPadreMadre {
-  metodoClaseFinal() {
-    console.log("Método de la Clase Final");
-  }
-}
+const padre1 = new Padre("Jesus");
+const madre1 = new Madre("Magdalena");
 
-let objetoFinal = new Hijo();
-objetoFinal.metodoClaseAbstracta1();
-objetoFinal.metodoClaseAbstracta2();
-objetoFinal.metodoCombinado();
-objetoFinal.metodoClaseFinal();
+let john = new Hijo("John", padre1, madre1);
+
+
+
+console.log(john.getHijoName());
+console.log(john.getPadre().getPadreName());
+console.log(john.getMadre().getMadreName());
