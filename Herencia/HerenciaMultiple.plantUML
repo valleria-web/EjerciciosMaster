@@ -1,38 +1,30 @@
 @startuml
 
-class Padre {
+class Father {
   - #name: String
-  + {constructor} Padre(name: String)
-  + getPadreName(): String
+  - children: List<Children>
+  + {constructor} Father(name: String)
+  + getFatherName(): String
 }
 
-class Madre {
+class Mother {
   - #name: String
-  + {constructor} Madre(name: String)
-  + getMadreName(): String
+  + {constructor} Mother(name: String)
+  + getMotherName(): String
 }
 
-class GeneticaPadreMadre {
-  - padre: Padre
-  - madre: Madre
-  + {constructor} GeneticaPadreMadre(padre: Padre, madre: Madre)
-  + getPadreName(): String
-  + getMadreName(): String
-}
-
-class Hijo {
+class Children {
   - #name: String
-  - padre: Padre
-  - madre: Madre
-  + {constructor} Hijo(name: String, padre: Padre, madre: Madre)
-  + getHijoName(): String
-  + getPadre(): Padre
-  + getMadre(): Madre
+  - #father: Father
+  - #mother: Mother
+  + {constructor} Children(name: String, father: Father, mother: Mother)
+  + getChildrenName(): String
+  + getFather(): Father
+  + getMother(): Mother
 }
 
-Padre --|> GeneticaPadreMadre: contiene
-Madre --|> GeneticaPadreMadre: contiene
-GeneticaPadreMadre --|> Hijo: hereda
+Father *-- "1..*" Children: children
+Mother *-- "1..*" Children: mother
 
 @enduml
 
